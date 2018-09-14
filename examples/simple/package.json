@@ -1,16 +1,20 @@
 {
-  "name": "@oclif/plugin-svo",
+  "name": "simple",
   "version": "0.0.0",
   "author": "Jeff Dickey @jdxcode",
-  "bugs": "https://github.com/oclif/plugin-svo/issues",
+  "bin": {
+    "simple": "./bin/run"
+  },
+  "bugs": "https://github.com/jdxcode/simple/issues",
   "dependencies": {
     "@oclif/command": "^1",
     "@oclif/config": "^1",
+    "@oclif/plugin-help": "^2",
+    "axios": "^0.18.0",
     "tslib": "^1"
   },
   "devDependencies": {
     "@oclif/dev-cli": "^1",
-    "@oclif/plugin-help": "^2",
     "@oclif/test": "^1",
     "@oclif/tslint": "^3",
     "@types/chai": "^4",
@@ -22,33 +26,32 @@
     "nyc": "^13",
     "ts-node": "^7",
     "tslint": "^5",
-    "typescript": "^3.0"
+    "typescript": "^3.1.0-rc.20180911"
   },
   "engines": {
     "node": ">=8.0.0"
   },
   "files": [
+    "/bin",
     "/lib",
     "/npm-shrinkwrap.json",
-    "/oclif.manifest.json",
-    "/yarn.lock"
+    "/oclif.manifest.json"
   ],
-  "homepage": "https://github.com/oclif/plugin-svo",
+  "homepage": "https://github.com/jdxcode/simple",
   "keywords": [
-    "oclif-plugin"
+    "oclif"
   ],
   "license": "MIT",
+  "main": "lib/index.js",
   "oclif": {
     "commands": "./lib/commands",
-    "bin": "oclif-example",
-    "devPlugins": [
+    "bin": "simple",
+    "plugins": [
+      "@oclif/plugin-svo",
       "@oclif/plugin-help"
-    ],
-    "hooks": {
-      "init": "./lib/hooks/init/init"
-    }
+    ]
   },
-  "repository": "oclif/plugin-svo",
+  "repository": "jdxcode/simple",
   "scripts": {
     "postpack": "rm -f oclif.manifest.json npm-shrinkwrap.json",
     "posttest": "tsc -p test --noEmit && tslint -p test -t stylish",
@@ -56,5 +59,6 @@
     "prepare": "rm -rf lib && tsc",
     "test": "nyc mocha --forbid-only \"test/**/*.test.ts\"",
     "version": "oclif-dev readme && git add README.md"
-  }
+  },
+  "types": "lib/index.d.ts"
 }
