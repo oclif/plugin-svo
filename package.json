@@ -6,6 +6,7 @@
   "dependencies": {
     "@oclif/command": "^1",
     "@oclif/config": "^1",
+    "cli-ux": "^5.0.0-0",
     "tslib": "^1"
   },
   "devDependencies": {
@@ -48,6 +49,8 @@
       "init": "./lib/hooks/init/init"
     }
   },
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
   "repository": "oclif/plugin-svo",
   "scripts": {
     "postpack": "rm -f oclif.manifest.json npm-shrinkwrap.json",
