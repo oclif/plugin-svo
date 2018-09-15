@@ -11,8 +11,9 @@ export class User {
   }
 }
 
-export default svo.verb.list<User>({
-  props: {
+export default svo.subject<User>({
+  verbs: ['list'],
+  view: {
     id: {
       get: row => row.id
     },
@@ -28,4 +29,4 @@ export default svo.verb.list<User>({
     const {data} = await axios.get<{id: string, name: string}>(`https://jsonplaceholder.typicode.com/users/${id}`)
     return new User(data)
   },
-}).run()
+})

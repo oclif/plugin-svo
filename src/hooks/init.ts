@@ -8,8 +8,8 @@ const hook: Hook<'init'> = async function (opts) {
   if (id && id.startsWith('@')) {
     try {
       const subjectRoot = path.join(this.config.root, 'src/subjects')
-      const subjectName = id.split('@')[0]
-      const subject: Subject<any> = require(path.join(subjectRoot, subjectName))
+      const subjectName = id.split('@')[1]
+      const subject: Subject<any> = require(path.join(subjectRoot, subjectName)).default
       const verb = subject.verbs.find(c => c.verb === (opts.argv[0] || 'list'))
       await verb!.run()
       this.exit(0)
