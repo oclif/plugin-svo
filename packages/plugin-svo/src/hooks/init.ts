@@ -11,10 +11,10 @@ const hook: Hook<'init'> = async function (opts) {
       const subjectName = id.split('@')[1].split(':')[0]
       const subject: Subject<any> = require(path.join(subjectRoot, subjectName)).default
       await subject.run(id, argv)
-      this.exit(0)
     } catch (err) {
       this.error(err)
     }
+    this.exit(0)
   }
 }
 
