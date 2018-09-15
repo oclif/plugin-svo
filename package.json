@@ -46,7 +46,7 @@
       "@oclif/plugin-help"
     ],
     "hooks": {
-      "init": "./lib/hooks/init/init"
+      "init": "./lib/hooks/init"
     }
   },
   "main": "./lib/index.js",
