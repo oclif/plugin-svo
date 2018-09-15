@@ -54,8 +54,8 @@
   "repository": "oclif/plugin-svo",
   "scripts": {
     "postpack": "rm -f oclif.manifest.json npm-shrinkwrap.json",
-    "posttest": "tsc -p test --noEmit && tslint -p test -t stylish",
-    "prepack": "rm -rf lib && tsc && oclif-dev manifest && oclif-dev readme && npm shrinkwrap",
+    "posttest": "tslint -p test -t stylish",
+    "prepack": "oclif-dev manifest && oclif-dev readme && npm shrinkwrap",
     "prepare": "rm -rf lib && tsc",
     "test": "nyc mocha --forbid-only \"test/**/*.test.ts\"",
     "version": "oclif-dev readme && git add README.md"
