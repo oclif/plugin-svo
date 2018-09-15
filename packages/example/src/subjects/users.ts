@@ -11,22 +11,21 @@ export class User {
   }
 }
 
-export default svo.subject<User>({
-  verbs: ['list'],
-  view: {
-    id: {
-      get: row => row.id
-    },
-    name: {},
+const view: svo.View<User> = {
+  id: {
+    get: row => row.id
   },
+  name: {},
+}
 
-  async fetchAll() {
-    const {data} = await axios.get<Array<{id: string, name: string}>>('https://jsonplaceholder.typicode.com/users')
-    return data.map(d => new User(d))
-  },
-
-  async fetchOne(id: string) {
-    const {data} = await axios.get<{id: string, name: string}>(`https://jsonplaceholder.typicode.com/users/${id}`)
-    return new User(data)
+export default svo.subject({
+  verbs: {
+    list: svo.list({
+      view,
+      async fetch() {
+        const {data} = await axios.get<Array<{id: string, name: string}>>('https://jsonplaceholder.typicode.com/users')
+        return data.map(d => new User(d))
+      }
+    })
   },
 })

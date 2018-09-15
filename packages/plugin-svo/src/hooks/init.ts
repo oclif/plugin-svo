@@ -9,7 +9,7 @@ const hook: Hook<'init'> = async function (opts) {
     try {
       const subjectRoot = path.join(this.config.root, 'src/subjects')
       const subjectName = id.split('@')[1].split(':')[0]
-      const subject: Subject<any> = require(path.join(subjectRoot, subjectName)).default
+      const subject: Subject = require(path.join(subjectRoot, subjectName)).default
       await subject.run(id, argv)
     } catch (err) {
       this.error(err)
