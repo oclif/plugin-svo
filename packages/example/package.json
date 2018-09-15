@@ -1,5 +1,6 @@
 {
   "name": "simple",
+  "private": true,
   "version": "0.0.0",
   "author": "Jeff Dickey @jdxcode",
   "bin": {
@@ -10,6 +11,7 @@
     "@oclif/command": "^1",
     "@oclif/config": "^1",
     "@oclif/plugin-help": "^2",
+    "@oclif/plugin-svo": "^0.0.0",
     "axios": "^0.18.0",
     "cli-ux": "^5.0.0-0",
     "tslib": "^1"
